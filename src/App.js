@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import BoxContent from "./BoxContent";
+import SearchBox from "./SearchBox";
+import ToggleButton from "./ToggleButton";
 
 function App() {
+  const [boxContent, setBoxContent] = useState("");
+  const [color, setColor] = useState("black");
+  const [hexValue, setHexValue] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BoxContent boxContent={boxContent} color={color} hexValue={hexValue} />
+      <SearchBox
+        boxContent={boxContent}
+        setBoxContent={setBoxContent}
+        hexValue={hexValue}
+        setHexValue={setHexValue}
+      />
+      <ToggleButton color={color} setColor={setColor} />
     </div>
   );
 }
